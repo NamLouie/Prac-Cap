@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor/Mentee Profiles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: #000;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link:focus,
+        .navbar-nav .nav-link:active {
+            color: #007bff;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .dropdown-menu {
+            right: 0;
+            left: auto;
+        }
+        .dropdown-menu .dropdown-item:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .container {
+            max-width: 100%; /* Set max-width to 100% for full-width content */
+        }
+        .profile-section {
+            padding: 80px 0;
+        }
+        .profile-card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease;
+            position: relative;
+            text-align: center; /* Center align content */
+            height: 100%;
+        }
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .profile-card h5 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .profile-card p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            text-align: left; /* Align text left */
+        }
+        .profile-card .btn-primary {
+            border-radius: 25px;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+        }
+        .profile-card .btn-primary:hover {
+            background-color: #0069d9;
+        }
+        .filter-section {
+            position: sticky;
+            top: 80px;
+            left: 20px; /* Adjust left position */
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 250px; /* Adjust width as needed */
+        }
+        .filter-section h5 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .filter-checkbox {
+            margin-bottom: 10px;
+        }
+        .filter-checkbox label {
+            font-weight: 500;
+            color: #495057;
+        }
+        .filter-checkbox input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .search-form {
+            margin-bottom: 20px;
+            text-align: center; /* Center align search form */
+        }
+        .search-form .input-group {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto; /* Center align search bar */
+        }
+        .search-form .form-control {
+            border-radius: 25px;
+        }
+        .search-form .btn {
+            border-radius: 25px;
+            margin-left: -50px; /* Adjust button position */
+            z-index: 1; /* Ensure button overlaps input */
+        }
+        .profile-card img {
+            max-width: 100px; /* Adjust max-width as needed */
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header class="p-3 mb-4">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <a href="http://127.0.0.1:3000/landing-page.html" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
+                        <img src="/image/University_of_San_Agustin_Logo.png" alt="University Logo" width="50" height="50">
+                    </a>
+                    <ul class="nav ms-3">
+                        <li><a href="http://127.0.0.1:3000/profile.html" class="nav-link px-2 text-black">Profile</a></li>
+                        <li><a href="http://127.0.0.1:3000/mentor-mentee.html#" class="nav-link px-2 text-black">Mentor/Mentee</a></li>
+                        <li><a href="http://127.0.0.1:3000/report.html" class="nav-link px-2 text-black">Report</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown text-end jsuti">
+                    <a href="#" class="d-block text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="./image/user.png" alt="User" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end text-small">
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row justify-content-center"> <!-- Center align rows -->
+            <div class="col-md-9">
+                <!-- Main content section -->
+                <!-- Replace with your main content section -->
+                
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="mb-0">Mentor/Mentee Profiles</h1>
+                    <form class="search-form">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <button class="btn btn-outline-secondary" type="button" id="button-search">Search</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="filter-section">
+                            <h5>Role</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="roleMentor">
+                                <label class="form-check-label" for="roleMentor">
+                                    Mentor
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="roleMentee">
+                                <label class="form-check-label" for="roleMentee">
+                                    Mentee
+                                </label>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center"> <!-- Center align cards, 3 columns per row -->
+                            <div class="col">
+                                <div class="profile-card">
+                                    <img src="./image/user.png" class="img-fluid rounded-circle" alt="Profile Picture">
+                                    <h5 class="mt-3 mb-0">John Doe</h5>
+                                    <p class="text-muted mb-2">Mentee</p>
+                                    <p>Email: john.doe@example.com</p>
+                                    <p>Specialization: Web Development</p>
+                                    <button class="btn btn-primary">Request</button>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="profile-card">
+                                    <img src="./image/user.png" class="img-fluid rounded-circle" alt="Profile Picture">
+                                    <h5 class="mt-3 mb-0">John Doe</h5>
+                                    <p class="text-muted mb-2">Mentee</p>
+                                    <p>Email: john.doe@example.com</p>
+                                    <p>Specialization: Web Development</p>
+                                    <button class="btn btn-primary">Request</button>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="profile-card">
+                                    <img src="./image/user.png" class="img-fluid rounded-circle" alt="Profile Picture">
+                                    <h5 class="mt-3 mb-0">John Doe</h5>
+                                    <p class="text-muted mb-2">Mentee</p>
+                                    <p>Email: john.doe@example.com</p>
+                                    <p>Specialization: Web Development</p>
+                                    <button class="btn btn-primary">Request</button>
+                                </div>
+                            </div>
+                            <!-- Add more profile cards as needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-WPhX4BG+1Y7Xo7Qk4C2j/0UlLWIMfFZ8SST/JMClf3HTblTR+oAaCNnq5a4Qk0wX" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-oi99uTtsHv4SlXGFfwnXY4UkCtVTSeTlr4t4vOjzS+dNsfoRSVxKJ5Uzj8By6r3" crossorigin="anonymous"></script>
+</body>
+</html>
